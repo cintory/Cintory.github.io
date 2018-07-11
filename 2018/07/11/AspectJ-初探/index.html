@@ -271,7 +271,33 @@
 <h4 id="表达式-2"><a href="#表达式-2" class="headerlink" title="表达式"></a>表达式</h4><p>[@注解][访问权限] 类型 类全路径名.成员变量名</p>
 <h4 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h4><p>String com.example..People.lastName:表示com.example包下面的People这个类中名为lastName的String类型的成员变量</p>
 <h3 id="TypeSignature"><a href="#TypeSignature" class="headerlink" title="TypeSignature"></a>TypeSignature</h3><p>TypeSignature其实是用来指定一个类。因此我们只需要给出一个类的全路径的表达式即可。</p>
-<h2 id="间接对JoinPoint进行选择"><a href="#间接对JoinPoint进行选择" class="headerlink" title="间接对JoinPoint进行选择"></a>间接对JoinPoint进行选择</h2><p>除了上面表格中提及到的直接对Joinoint选择之外，还有一些PointCut关键字是间接对JoinPoint进行选择的。<br>PointCut语法|说明|示例<br>— | — | —<br>with(TypeSignature)|表示某个类中所有的JoinPoint|within(com.example.Test):表示在com.example.Test类当中的全部Join Point<br>withcode(ConstructorSignature/MethodSignature)|表示在某个函数/构造函数当中的Join Point|withincode(..Test(..)):表示在任意包下面的Test函数的所有Join Point<br>args(TypeSignature)|对Join Point的参数进行条件筛选|args(int,..):表示第一个参数是int，后面参数不限的Join Point</p>
+<h2 id="间接对JoinPoint进行选择"><a href="#间接对JoinPoint进行选择" class="headerlink" title="间接对JoinPoint进行选择"></a>间接对JoinPoint进行选择</h2><p>除了上面表格中提及到的直接对Joinoint选择之外，还有一些PointCut关键字是间接对JoinPoint进行选择的。</p>
+<table>
+<thead>
+<tr>
+<th>PointCut语法</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>with(TypeSignature)</td>
+<td>表示某个类中所有的JoinPoint</td>
+<td>within(com.example.Test):表示在com.example.Test类当中的全部Join Point</td>
+</tr>
+<tr>
+<td>withcode(ConstructorSignature/MethodSignature)</td>
+<td>表示在某个函数/构造函数当中的Join Point</td>
+<td>withincode(..Test(..)):表示在任意包下面的Test函数的所有Join Point</td>
+</tr>
+<tr>
+<td>args(TypeSignature)</td>
+<td>对Join Point的参数进行条件筛选</td>
+<td>args(int,..):表示第一个参数是int，后面参数不限的Join Point</td>
+</tr>
+</tbody>
+</table>
 <p>除了上面几个外，还有target、this、cflow、cflowbelow。</p>
 <h2 id="Advice语法使用"><a href="#Advice语法使用" class="headerlink" title="Advice语法使用"></a>Advice语法使用</h2><p>AspectJ提供的Advice类型：</p>
 <table>
