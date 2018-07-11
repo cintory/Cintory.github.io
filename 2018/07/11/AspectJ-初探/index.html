@@ -94,7 +94,63 @@
 <li>使用AspectJ的语言进行开发</li>
 <li>通过AspectJ提供的注解在Java语言上开发<br>因为最终目的都需要在字节码文件中织入切面代码，不管使用哪种方式介入AspectJ，都需要使用AspectJ提供的额代码编译工具AJC进行编译。</li>
 </ul>
-<h1 id="常用术语"><a href="#常用术语" class="headerlink" title="常用术语"></a>常用术语</h1><h2 id="JoinPoints"><a href="#JoinPoints" class="headerlink" title="JoinPoints"></a>JoinPoints</h2><p>JoinPoints(连接点)，程序中可能作为代码注入目标的特定点。<br>在AspectJ中可以作为JoinPoints的地方:<br>JoinPoints|说明|示例<br>— | — | —<br>method call|函数调用|调用Log.e()<br>method execution|函数执行|Log.e()执行的内部<br>constructor call|构造函数调用|<br>constructor executor|构造函数的执行|<br>field get|获取某个变量|<br>field set|设置某个变量|<br>static initialization|类的初始化|<br>initialization|object在构造函数中做的一些工作|<br>handler|异常处理|对应try-catch()中，对应的catch块内的执行</p>
+<h1 id="常用术语"><a href="#常用术语" class="headerlink" title="常用术语"></a>常用术语</h1><h2 id="JoinPoints"><a href="#JoinPoints" class="headerlink" title="JoinPoints"></a>JoinPoints</h2><p>JoinPoints(连接点)，程序中可能作为代码注入目标的特定点。<br>在AspectJ中可以作为JoinPoints的地方:</p>
+<table>
+<thead>
+<tr>
+<th>JoinPoints</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>method call</td>
+<td>函数调用</td>
+<td>调用Log.e()</td>
+</tr>
+<tr>
+<td>method execution</td>
+<td>函数执行</td>
+<td>Log.e()执行的内部</td>
+</tr>
+<tr>
+<td>constructor call</td>
+<td>构造函数调用</td>
+<td></td>
+</tr>
+<tr>
+<td>constructor executor</td>
+<td>构造函数的执行</td>
+<td></td>
+</tr>
+<tr>
+<td>field get</td>
+<td>获取某个变量</td>
+<td></td>
+</tr>
+<tr>
+<td>field set</td>
+<td>设置某个变量</td>
+<td></td>
+</tr>
+<tr>
+<td>static initialization</td>
+<td>类的初始化</td>
+<td></td>
+</tr>
+<tr>
+<td>initialization</td>
+<td>object在构造函数中做的一些工作</td>
+<td></td>
+</tr>
+<tr>
+<td>handler</td>
+<td>异常处理</td>
+<td>对应try-catch()中，对应的catch块内的执行</td>
+</tr>
+</tbody>
+</table>
 <h2 id="PointCuts"><a href="#PointCuts" class="headerlink" title="PointCuts"></a>PointCuts</h2><p>PointCuts(切入点)，代码注入的位置。与JoinPoints不同在于，PointCuts是有条件限定的JoinPoints。比如说，在一个Java文件中，会有很多的JoinPoints，但我们只希望在特定的地方注入代码。所以PointCuts是通过语法标准给JoinPoints添加了筛选条件限定。</p>
 <h2 id="Advice"><a href="#Advice" class="headerlink" title="Advice"></a>Advice</h2><p>Advice(通知)，其实就是注入到class文件中的代码片。典型的Advice类型的有befor、after和around，分别表示在目标放那个发执行之前、执行后和完全代替目标方法执行的代码。</p>
 <h2 id="Aspect"><a href="#Aspect" class="headerlink" title="Aspect"></a>Aspect</h2><p>Aspect(切面)，PointCut和Advice的组合看作为切面。</p>
@@ -217,7 +273,37 @@
 <h3 id="TypeSignature"><a href="#TypeSignature" class="headerlink" title="TypeSignature"></a>TypeSignature</h3><p>TypeSignature其实是用来指定一个类。因此我们只需要给出一个类的全路径的表达式即可。</p>
 <h2 id="间接对JoinPoint进行选择"><a href="#间接对JoinPoint进行选择" class="headerlink" title="间接对JoinPoint进行选择"></a>间接对JoinPoint进行选择</h2><p>除了上面表格中提及到的直接对Joinoint选择之外，还有一些PointCut关键字是间接对JoinPoint进行选择的。<br>PointCut语法|说明|示例<br>— | — | —<br>with(TypeSignature)|表示某个类中所有的JoinPoint|within(com.example.Test):表示在com.example.Test类当中的全部Join Point<br>withcode(ConstructorSignature/MethodSignature)|表示在某个函数/构造函数当中的Join Point|withincode(..Test(..)):表示在任意包下面的Test函数的所有Join Point<br>args(TypeSignature)|对Join Point的参数进行条件筛选|args(int,..):表示第一个参数是int，后面参数不限的Join Point</p>
 <p>除了上面几个外，还有target、this、cflow、cflowbelow。</p>
-<h2 id="Advice语法使用"><a href="#Advice语法使用" class="headerlink" title="Advice语法使用"></a>Advice语法使用</h2><p>AspectJ提供的Advice类型：<br>Advice语法|说明<br>— | —<br>before|在选择的Join Point的前面插入切片代码<br>after|在选择的Join Point的后面插入切片代码<br>around|around会替代原来的JoinPoint(我们可以完全修改一个方法的实现)，如果需要调用原来的JoinPoint的话，可以调用proceed()方法<br>AfterThrowing|在选择的JoinPoint异常抛出的时候插入切片的代码<br>AfterReturning|在选择的JoinPoint返回之前插入切片的代码</p>
+<h2 id="Advice语法使用"><a href="#Advice语法使用" class="headerlink" title="Advice语法使用"></a>Advice语法使用</h2><p>AspectJ提供的Advice类型：</p>
+<table>
+<thead>
+<tr>
+<th>Advice语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>before</td>
+<td>在选择的Join Point的前面插入切片代码</td>
+</tr>
+<tr>
+<td>after</td>
+<td>在选择的Join Point的后面插入切片代码</td>
+</tr>
+<tr>
+<td>around</td>
+<td>around会替代原来的JoinPoint(我们可以完全修改一个方法的实现)，如果需要调用原来的JoinPoint的话，可以调用proceed()方法</td>
+</tr>
+<tr>
+<td>AfterThrowing</td>
+<td>在选择的JoinPoint异常抛出的时候插入切片的代码</td>
+</tr>
+<tr>
+<td>AfterReturning</td>
+<td>在选择的JoinPoint返回之前插入切片的代码</td>
+</tr>
+</tbody>
+</table>
 <h2 id="AspectJ简单例子"><a href="#AspectJ简单例子" class="headerlink" title="AspectJ简单例子"></a>AspectJ简单例子</h2><h3 id="HookMethod"><a href="#HookMethod" class="headerlink" title="HookMethod"></a>HookMethod</h3><h4 id="HookMethod注解"><a href="#HookMethod注解" class="headerlink" title="HookMethod注解"></a>HookMethod注解</h4><p>定义一个注解，以便于提供JoinPoint筛选。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Target(&#123; METHOD, CONSTRUCTOR &#125;) public @interface HookMethod &#123;</span><br><span class="line"></span><br><span class="line">    String beforeMethod() default &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    String afterMethod() default &quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="HookMethodAspect"><a href="#HookMethodAspect" class="headerlink" title="HookMethodAspect"></a>HookMethodAspect</h4><p>采用以注解的形式，编译生成AspectJ代码，这样可以使用Java来撰写代码。<br>利用反射来调用需要在Join Point之前和之后的代码。</p>
