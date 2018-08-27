@@ -1,0 +1,407 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ADB指令 | Cintory&#39;s blog</title>
+
+  
+  <meta name="author" content="Cintory">
+  
+
+  
+  <meta name="description" content="ADB指令
+查看最上层Activity名字
+
+12adb shell dumpsys activity | findstr &amp;quot;mFocusedActivity&amp;quot;adb shell dumpsys window w | findstr mCurrentFocus
+
+查看Activity的任务栈
+
+1adb shell dumpsys activity activities
+
+显示所有的activities的信息，包括任务栈
+
+1adb shell dumpsys activity
+
+查看Android应用包名package和入口activity名称
+
+1aapt dump badging &amp;#123;path&amp;#125;">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="ADB指令"/>
+
+  <meta property="og:site_name" content="Cintory&#39;s blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Cintory&#39;s blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Cintory&#39;s blog</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/categories">Categories</a></li>
+      
+        <li><a href="/tags">Tags</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>ADB指令</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/08/27/ADB指令/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-08-27T03:23:35.000Z">
+          2018-08-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="ADB指令"><a href="#ADB指令" class="headerlink" title="ADB指令"></a>ADB指令</h1><ul>
+<li>查看最上层Activity名字</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys activity | findstr &quot;mFocusedActivity&quot;</span><br><span class="line">adb shell dumpsys window w | findstr mCurrentFocus</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看Activity的任务栈</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys activity activities</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示所有的activities的信息，包括任务栈</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys activity</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看Android应用包名package和入口activity名称</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aapt dump badging &#123;path&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a> 
+<ul>
+<li>显示acctounts信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys account</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示CPU信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys cpu info</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看CPU使用信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell top -n 1 -d 0.5 | findstr proc_ id</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示键盘，窗口和它们的关系</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys window</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设备分辨率</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys window displays</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看UI绘制各个层级信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys SurfaceFlinger</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示wifi信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys wifi</span><br></pre></td></tr></table></figure>
+<ul>
+<li>电量信息及CPU使用时长</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys batteryinfo $package_name</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取安装包信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys package packagename</span><br></pre></td></tr></table></figure>
+<ul>
+<li>每个应用的启动次数和时间</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys usagestats</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示状态栏相关的信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys statusbar</span><br></pre></td></tr></table></figure>
+<ul>
+<li>内存信息(meminfo package_name or pid 使用程序的包名或者进程id显示内存信息)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys meminfo</span><br><span class="line">adb shell dumpsys meminfo &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>磁盘相关信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys diskstats</span><br></pre></td></tr></table></figure>
+<ul>
+<li>电池相关信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys battery</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示Alarm信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys alarm</span><br></pre></td></tr></table></figure>
+<ul>
+<li>统计系统耗电量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys batterystats</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置线程的优先级</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys activity | grep oom_adj</span><br></pre></td></tr></table></figure>
+<ul>
+<li>强制关闭</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell am force_stop &lt;PACKAGE&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看内存信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell cat proc/meminfo</span><br></pre></td></tr></table></figure>
+<ul>
+<li>指定进程内存地址映射</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell cat proc/pid/maps</span><br></pre></td></tr></table></figure>
+<ul>
+<li>指定进程内存详细使用信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell cat proc/pid/smaps</span><br></pre></td></tr></table></figure>
+<ul>
+<li>VSS,RSS,PSS,USS信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell procrank</span><br></pre></td></tr></table></figure>
+<ul>
+<li>指定VSS,RSS,PSS,USS详细信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell procmen pid</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看可输入设备</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell getevent -p</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获得特定设备的输入信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell getevent /dev/input/event0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>点击</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell input tap x y</span><br></pre></td></tr></table></figure>
+<ul>
+<li>发送按键</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell input keyevent 82(&lt;keycode&gt;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>输入文本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell input text &lt;text&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看进程</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell ps | findstr &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>远程进程</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb jdwp</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取序列号</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb get-serialno</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重启到bootloader</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重启到recovery</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot recovery</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取机器MAC地址</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell cat /sys/class/net/wlan0/address</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取CPU序列号</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell cat /proc/cpuinfo</span><br></pre></td></tr></table></figure>
+<ul>
+<li>覆盖安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install -r &lt;apkfile&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装apk到sd卡</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install -s &lt;apkfile&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>卸载app，保留数据和缓存文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb uninstall -k &lt;package&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看设备cup和内存占用情况</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell top</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看内存前6的app</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell top -m 6</span><br></pre></td></tr></table></figure>
+<ul>
+<li>刷新一次内存信息，然后返回</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell top -n 1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查询各进程内存使用情况</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell procrank</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看指定进程状态</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell ps -x [PID]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看后台service信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell service list</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看当前内存占用（该方式只能得出整个系统内存大概使用情况）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell procrank</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看IO内存分区</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell cat /proc/iomem</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看wifi密码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell cat /data/misc/wifi/*.conf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看设备信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell cat /system/build.prop</span><br></pre></td></tr></table></figure>
+<ul>
+<li>运行monkey</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell monkey -v -p &lt;PackageName&gt; 500</span><br></pre></td></tr></table></figure>
+<ul>
+<li>列出目标设备上安装所有的app包名</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm list package</span><br></pre></td></tr></table></figure>
+<ul>
+<li>截屏</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell screencap -p &lt;FilePath&gt;</span><br><span class="line">adb pull &lt;FilePath&gt;</span><br><span class="line">adb shell rm &lt;FilePath&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>录制视频，mp4格式，默认时间180s</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell screenrecord</span><br><span class="line">adb shell screenrecord --time-limit &lt;Duration&gt; --size &lt;Resolution&gt; --bit-rate &lt;BitRate&gt; &lt;FilePath&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示log</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">V - 明细（最低优先级）</span><br><span class="line">D - 调试</span><br><span class="line">I - 信息</span><br><span class="line">W - 警告</span><br><span class="line">E - 错误</span><br><span class="line">F - 严重错误</span><br><span class="line">S - 无挤在</span><br><span class="line"></span><br><span class="line">adb shell logcat *:W</span><br><span class="line">adb logcat ActivityManager:I MyApp:D *:S</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改log输出格式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">brief - 显示优先级/标记和原始进程的PID（默认格式）</span><br><span class="line">process - 仅显示进程PID</span><br><span class="line">tag - 仅显示优先级/标记</span><br><span class="line">thread - 仅显示进程：线程和优先级/标记</span><br><span class="line">raw - 显示原始的日志信息，没有其他的元数据字段</span><br><span class="line">time - 显示日期，调用时间，优先级/标记，PID</span><br><span class="line">long - 显示所有的元数据字段并且用空行分隔消息内容</span><br><span class="line"></span><br><span class="line">adb logcat -v thread</span><br></pre></td></tr></table></figure>
+<ul>
+<li>清除log缓存</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb logcat -c</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看附加缓冲区</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">radio - 查看包含在无线/电话相关的缓冲区消息</span><br><span class="line">events - 查看事件相关的信息</span><br><span class="line">main - 查看主缓冲区（默认缓冲区）</span><br><span class="line"></span><br><span class="line">adb logcat -b radio</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置、获取属性信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell getprop [key]</span><br><span class="line">adb shell setprop [key] [value]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>监听系统属性变化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell watchprops</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>tcp dump</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell tcpdump -s 10000 -w &lt;FilePath&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>状态信息（dmesg,dumpstate和dumpsys）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb bugreport &gt; bugreport.log</span><br></pre></td></tr></table></figure>
+<ul>
+<li>kernel的log</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dmesg &gt; ldmesg_kernel.log</span><br></pre></td></tr></table></figure>
+<ul>
+<li>dumpstate（手机当前内存信息、cpu信息、logcat缓存，kernel缓存等等）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpstate</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2018 Cintory
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

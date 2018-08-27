@@ -63,6 +63,66 @@
 
   
     
+    <h3 class="article-title"><a href="/2018/08/27/ADB指令/"><span>ADB指令</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/08/27/ADB指令/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-08-27T03:23:35.000Z">
+          2018-08-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="ADB指令"><a href="#ADB指令" class="headerlink" title="ADB指令"></a>ADB指令</h1><ul>
+<li>查看最上层Activity名字</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys activity | findstr &quot;mFocusedActivity&quot;</span><br><span class="line">adb shell dumpsys window w | findstr mCurrentFocus</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看Activity的任务栈</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys activity activities</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示所有的activities的信息，包括任务栈</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys activity</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看Android应用包名package和入口activity名称</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aapt dump badging &#123;path&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2018/07/11/AspectJ-初探/"><span>AspectJ 初探</span></a></h3>
     
   
